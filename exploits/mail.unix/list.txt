@@ -1,0 +1,11 @@
+Exploitation in Ubuntu's RoundCube mailing protocol:
+
+Explanation:
+Roundcube Webmail before 1.5.10 and 1.6.x before 1.6.11 allows remote code execution by authenticated users,
+because the _from parameter in a URL is not validated in program/actions/settings/upload.php. This can lead to PHP Object Deserialization, which can lead to system faults and potential RCE.
+
+Usage:
+python3 exploit.py <url> <username> <password> <command> 
+
+Mitigation:
+The official Ubuntu wiki has information on patching this exploit. This can be found at https://ubuntu.com/security/CVE-2025-49113.
